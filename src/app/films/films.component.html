@@ -1,0 +1,31 @@
+<div class="header">
+  <div class="films" *ngFor="let film of data; let i = index">
+    <div class="left-one">
+      <label>{{ film?.title }}</label>
+      <p>Release Date: {{ film?.created }}</p>
+      <a href="javascript:void(0);" (click)="loadPeopleInfo(film)"
+        >Show People</a
+      >
+    </div>
+    <div class="right-one">{{ film?.episode_id }}</div>
+  </div>
+</div>
+
+<div class="people-information" *ngIf="peopleInfo.length > 0">
+  <table>
+    <tr>
+      <th>S No.</th>
+      <th>Name</th>
+      <th>Birthday Year</th>
+      <th>Gender</th>
+      <th>Mass KG</th>
+    </tr>
+    <tr *ngFor="let item of peopleInfo; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.birth_year }}</td>
+      <td>{{ item.gender }}</td>
+      <td>{{ item.mass }}</td>
+    </tr>
+  </table>
+</div>
